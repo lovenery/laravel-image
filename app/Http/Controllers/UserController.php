@@ -15,6 +15,9 @@ class UserController extends Controller
     }
 
     public function update_avatar(Request $request){
+        $this->validate($request, [
+            'avatar' => 'required',
+        ]);
         // Handle the user upload of avatar
     	if($request->hasFile('avatar')){
     		$avatar = $request->file('avatar');
